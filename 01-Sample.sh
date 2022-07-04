@@ -2,3 +2,4 @@
 
 #ls
 echo $ type shell
+ls
