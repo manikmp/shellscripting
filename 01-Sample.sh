@@ -1,4 +1,4 @@
 #!/usr/bin/bash
 
 #ls
-echo $shell
+echo $ type shell
