@@ -1,5 +1,4 @@
 #!/usr/bin/bash
 
-ls
-
+#ls
 echo $shell
