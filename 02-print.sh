@@ -11,3 +11,4 @@ echo Hello World
 # Cyan      36
 
 # Syntax : echo -e "\e[31mHello\[0m"
+echo -e "\e[1;33;4;44m yellow underlined text on Blue Background\e[0m"
