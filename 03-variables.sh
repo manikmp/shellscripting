@@ -3,7 +3,7 @@
 a=100
 b=devops
 
-echo $atimes
+echo $a times
 echo ${b}training
 
 
