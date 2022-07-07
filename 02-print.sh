@@ -13,3 +13,4 @@ echo Hello World
 # Syntax : echo -e "\e[31mHello\[0m"
 echo -e "\e[1;33;4;44m yellow underlined text on Blue Background\e[0m"
 echo -e "\e[33m brown text\e[1m"
+echo "hello world"
