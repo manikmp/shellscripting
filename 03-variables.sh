@@ -14,7 +14,7 @@ echo today date is $DATE
 
 x=10
 y=10
-ADD=$(( $(x) + $(y) ))
+ADD=$(( ${x} + ${y} ))
 echo Add = $ADD
 
 
