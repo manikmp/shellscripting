@@ -6,5 +6,13 @@ b=devops
 echo $a times
 echo ${b}training
 
+DATE=2022-03-10
+echo today date is $DATE
+
+
+
+
+
+
 
 
