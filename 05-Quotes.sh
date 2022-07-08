@@ -6,5 +6,5 @@ echo "Apple cost is \$300"
 
 Training = Devops
 echo 'training = ${Training}'
-echo "training = ${Training}"
+echo "training = $ Training"
 echo "training = \${Training}"
