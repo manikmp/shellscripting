@@ -14,5 +14,5 @@ echo "process id of shell  =$$"
 echo "Name of the shell script = $0"
 echo "Number of args = $#"
 echo "Arguments 1 = $1"
-echo "Arguments 2 = $2
-"
+echo "Arguments 2 = $2"
+
