@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 
-read -p 'enter your name : ' name
+read -p "enter your name : " name
 echo "your name = $name"
 
 #echo "Process id of shell = $$"
