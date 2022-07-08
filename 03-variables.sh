@@ -22,7 +22,7 @@ echo first value of Array  = ${c[0]}
 echo second value of Array = ${c[2]}
 echo All Values of Array   = ${c[*]}
 
-
+echo training = ${training}
 
 
 
