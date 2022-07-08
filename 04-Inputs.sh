@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 
-read -p 'enter your name : ' name
+read  'enter your name : ' name
 echo "your name = $name"
