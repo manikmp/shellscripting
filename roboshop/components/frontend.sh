@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
+echo -e "\e[36m installing nginx \e[0m"
 yum install nginx -y
 
-
+echo -e "\e[36m Downloading nginx content \e[0m"
 curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
 
 rm -rf /usr/share/nginx/html *
