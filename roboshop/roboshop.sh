@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-if [ ! -e components/$1.sh ]:
+if [ ! -e components/$1.sh ];
 then
-  echo component does not exist
+  echo "component does not exist"
   exit 1
   fi
 
