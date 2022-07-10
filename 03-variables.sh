@@ -24,6 +24,10 @@ echo All Values of Array   = ${c[*]}
 
 echo training = ${training}
 
+echo "user info for userid: $USER"
+echo UID: $UID
+echo HOME: $HOME
+
 
 
 
