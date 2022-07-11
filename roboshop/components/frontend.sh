@@ -22,6 +22,7 @@ echo -e "\e[36m installing nginx \e[0m"
 yum install nginx -y
 statcheck $?
 systemctl enable nginx
+statcheck $?
 systemctl start nginx
 
 echo -e "\e[36m Downloading nginx content \e[0m"
