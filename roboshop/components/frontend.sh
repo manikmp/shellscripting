@@ -7,7 +7,6 @@ statcheck() {
     echo -e "\e[31mfailure\e[0m"
   exit 2
   fi
-
 }
 
 USER_ID=$(id -u)
@@ -43,6 +42,7 @@ statcheck $?
 echo -e "\e[36m starting nginx \e[0m"
 
 systemctl restart nginx
+
 statcheck $?
 
 
