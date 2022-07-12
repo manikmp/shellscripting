@@ -35,6 +35,6 @@ sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
 statcheck $?
 
 print "start MONGODB"
-systemctl restart mongodb &>>$LOG_FILE
+systemctl enable mongodb &>>$LOG_FILE && systemctl restart mongodb &>>$LOG_FILE
 statcheck $?
 
