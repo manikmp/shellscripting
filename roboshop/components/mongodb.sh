@@ -23,7 +23,9 @@ curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/robos
 statcheck $?
 
 print "Extract Schema"
-cd /tmp && unzip mongodb.zip &>>$LOG_FILE
+cd /tmp
+statcheck $?
+unzip mongodb.zip  &>>$LOG_FILE
 statcheck $?
 
 print "Load Schema"
