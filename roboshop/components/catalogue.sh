@@ -20,7 +20,7 @@ curl -f -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/
 statcheck $?
 
 print "cleanup old contnent"
-rm -f /home/${APP_USER}/catalogue &>>${LOG_FILE}
+rm -f /home/roboshop/catalogue &>>${LOG_FILE}
 statcheck $?
 
 print "extract app content"
