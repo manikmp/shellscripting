@@ -34,7 +34,7 @@ statcheck $?
 
 
 print "Fix App user permission"
-chown -R ${APP_USER} : ${APP_USER} /home/${APP_USER}
+chown -R ${APP_USER}:${APP_USER} /home/${APP_USER}
 statcheck $?
 
 print "setup systemD file"
