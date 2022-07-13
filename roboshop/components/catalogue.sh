@@ -28,7 +28,7 @@ cd /home/roboshop && unzip -o /tmp/catalogue.zip &>>${LOG_FILE} && mv catalogue-
 statcheck $?
 
 print "Install App Dependencies"
-cd /home/roboshop &>>${LOG_FILE} && npm install &>>${LOG_FILE}
+cd /home/roboshop/catalogue &>>${LOG_FILE} && npm install &>>${LOG_FILE}
 statcheck $?
 
 
