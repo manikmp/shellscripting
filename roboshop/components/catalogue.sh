@@ -11,6 +11,7 @@ yum install nodejs -y  &>>$LOG_FILE
 statcheck $?
 
 print "ADD APPlication user"
+id ${APP_USER} &>>${LOG_FILE}
 if [ $? -ne 0 ]; then
  useradd ${APP_USER} &>>${LOG_FILE}
  statcheck $?
@@ -20,15 +21,15 @@ curl -f -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/
 statcheck $?
 
 print "cleanup old contnent"
-rm -rf /home/roboshop/catalogue &>>${LOG_FILE}
+rm -rf /home/${APP_USER}/catalogue &>>${LOG_FILE}
 statcheck $?
 
 print "extract app content"
-cd /home/roboshop && unzip -o /tmp/catalogue.zip &>>${LOG_FILE} && mv catalogue-main catalogue &>>${LOG_FILE}
+cd /home/${APP_USER} &>>${LOG_FILE} && unzip -o /tmp/catalogue.zip &>>${LOG_FILE} && mv catalogue-main catalogue &>>${LOG_FILE}
 statcheck $?
 
 print "Install App Dependencies"
-cd /home/roboshop/catalogue &>>${LOG_FILE} && npm install &>>${LOG_FILE}
+cd /home/${APP_USER}/catalogue &>>${LOG_FILE} && npm install &>>${LOG_FILE}
 statcheck $?
 
 
