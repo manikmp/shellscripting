@@ -23,7 +23,7 @@ print "cleanup old contnent"
 rm -f /home/${APP_USER}/catalogue &>>${LOG_FILE}
 statcheck $?
 
-print "extract appcontent"
+print "extract app content"
 cd /home/roboshop && unzip -o /tmp/catalogue.zip &>>${LOG_FILE} && mv catalogue-main catalogue &>>${LOG_FILE}
 statcheck $?
 
