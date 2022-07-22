@@ -43,4 +43,9 @@ statcheck $?
 mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service &>>${LOG_FILE}
 statcheck $?
 
+print "Restart Catalogue Service"
+systemctl daemon-reload &>>${LOG_FILE} && systemctl restart catalogue &>>${LOG_FILE} && systemctl enable catalogue &>>${LOG_FILE}
+statcheck $?
+
+
 
