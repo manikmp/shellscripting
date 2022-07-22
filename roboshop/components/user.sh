@@ -32,3 +32,15 @@ statcheck $?
 print "Fix App User Permission"
 chown -R ${APP_USER}:${APP_USER} /home/${APP_USER}
 statcheck $?
+
+print "set up the systemd file"
+sed -i -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' /home/roboshop/user/systemd.service &>>${LOG_FILE}
+statcheck $?
+sed -i -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' /home/roboshop/user/systemd.service &>>${LOG_FILE}
+statcheck $?
+mv /home/roboshop/user/systemd.service /etc/systemd/system/user.service &>>${LOG_FILE}
+statcheck $?
+
+print "Restarting the user service"
+systemctl daemon-reload &>>${LOG_FILE} && systemctl start user &>>${LOG_FILE} &&  systemctl enable user &>>${LOG_FILE}
+statcheck $?
