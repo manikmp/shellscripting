@@ -22,11 +22,11 @@ curl -f -s -L -o /tmp/user.zip "https://github.com/roboshop-devops-project/user/
 statcheck $?
 
 print "extracting the app content"
-cd /home/${APP_USER} &>>{LOG_FILE}
+cd /home/${APP_USER} &>>${LOG_FILE}
 statcheck $?
 
 print "extracted"
-unzip -o /tmp/user.zip  &>>{LOG_FILE} && mv user-main user &>>{LOG_FILE}
+unzip -o /tmp/user.zip  &>>${LOG_FILE} && mv user-main user &>>${LOG_FILE}
 statcheck $?
 
 print "Install app dependencies"
@@ -45,6 +45,6 @@ statcheck $?
 mv /home/roboshop/user/systemd.service /etc/systemd/system/user.service &>>${LOG_FILE}
 statcheck $?
 
-#print "Restarting the user service"
-#systemctl daemon-reload &>>${LOG_FILE} && systemctl start user &>>${LOG_FILE} &&  systemctl enable user &>>${LOG_FILE}
-#statcheck $?
+print "Restarting the user service"
+systemctl daemon-reload &>>${LOG_FILE} && systemctl start user &>>${LOG_FILE} &&  systemctl enable user &>>${LOG_FILE}
+statcheck $?
