@@ -26,7 +26,7 @@ cd /home/${APP_USER} &>>{LOG_FILE}
 statcheck $?
 
 print "extracted"
-unzip - O /tmp/user.zip &>>{LOG_FILE} && mv user-main user &>>{LOG_FILE}
+unzip -o /tmp/user.zip  &>>{LOG_FILE} && mv user-main user &>>{LOG_FILE}
 statcheck $?
 
 print "Install app dependencies"
