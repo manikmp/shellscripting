@@ -22,7 +22,7 @@ curl -f -s -L -o /tmp/user.zip "https://github.com/roboshop-devops-project/user/
 statcheck $?
 
 print "extracting the app content"
-cd /home/${APP_USER} &>>${LOG_FILE} && unzip /tmp/user.zip &>>${LOG_FILE} && mv user-main user &>>${LOG_FILE}
+cd /home/${APP_USER} &>>${LOG_FILE} && unzip -o /tmp/user.zip &>>${LOG_FILE} && mv user-main user &>>${LOG_FILE}
 statcheck $?
 
 print "Install app dependencies"
