@@ -22,6 +22,7 @@ rm -rf frontend-main README.md
 statcheck $?
 print "Update Roboshop configuration"
 mv localhost.conf /etc/nginx/default.d/roboshop.conf >>LOG_FILE
+sed -i -e '/catalogue/s/localhost/catalogue.roboshop.internal/' /etc/nginx/default.d/roboshop.conf &>>${LOG_FILE}
 statcheck $?
 
 print "starting nginx"
