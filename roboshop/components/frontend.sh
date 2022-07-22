@@ -26,9 +26,7 @@ sed -i -e '/catalogue/s/localhost/catalogue.roboshop.internal/' /etc/nginx/defau
 statcheck $?
 
 print "starting nginx"
-
 systemctl restart nginx
-
 statcheck $?
 
 
