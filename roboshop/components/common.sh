@@ -55,7 +55,7 @@ cd /home/${APP_USER} &>>${LOG_FILE} && rm -rf ${component} &>>${LOG_FILE} && unz
 statcheck $?
 
 print "Install app dependencies"
-cd /home/${APP_USER}/${component} &>>${LOG_FILE} && cd ${component} &>>${LOG_FILE} && npm install &>>${LOG_FILE}
+cd /home/${APP_USER}/${component} &>>${LOG_FILE}  && npm install &>>${LOG_FILE}
 statcheck $?
 
 print "Fix App User Permission"
