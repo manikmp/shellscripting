@@ -1,1 +1,5 @@
-echo cart components
+#!/usr/bin/env bash
+
+component=cart
+
+NODEJS
