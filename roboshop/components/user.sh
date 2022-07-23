@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 source components/common.sh
+component=user
+NODEJs() {
 
 print "Download the node source file"
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash  &>>${LOG_FILE}
@@ -18,11 +20,11 @@ fi
 statcheck $?
 
 print "Download the App content"
-curl -f -s -L -o /tmp/user.zip "https://github.com/roboshop-devops-project/user/archive/main.zip" &>>${LOG_FILE}
+curl -s -L -o /tmp/${component}.zip "https://github.com/roboshop-devops-project/${component}/archive/main.zip" &>>${LOG_FILE}
 statcheck $?
 
 print "extracting the app content"
-cd /home/${APP_USER} &>>${LOG_FILE} && unzip -o /tmp/user.zip &>>${LOG_FILE} && mv user-main user &>>${LOG_FILE}
+cd /home/${APP_USER} &>>${LOG_FILE} && unzip -o /tmp/${component}.zip  &>>${LOG_FILE} && mv ${component}-main ${component} &>>${LOG_FILE}
 statcheck $?
 
 print "Install app dependencies"
@@ -34,13 +36,13 @@ chown -R ${APP_USER}:${APP_USER} /home/${APP_USER}
 statcheck $?
 
 print "set up the systemd file"
-sed -i -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' /home/roboshop/user/systemd.service &>>${LOG_FILE}
+sed -i -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' /home/roboshop/${component}/systemd.service &>>${LOG_FILE}
 statcheck $?
-sed -i -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' /home/roboshop/user/systemd.service &>>${LOG_FILE}
+sed -i -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' /home/roboshop/${component}/systemd.service &>>${LOG_FILE}
 statcheck $?
-mv /home/roboshop/user/systemd.service /etc/systemd/system/user.service &>>${LOG_FILE}
+mv /home/roboshop/${component}/systemd.service /etc/systemd/system/${component}.service &>>${LOG_FILE}
 statcheck $?
 
 print "Restarting the user service"
-systemctl daemon-reload &>>${LOG_FILE} && systemctl start user &>>${LOG_FILE} &&  systemctl enable user &>>${LOG_FILE}
+systemctl daemon-reload &>>${LOG_FILE} && systemctl start ${component} &>>${LOG_FILE} &&  systemctl enable ${component} &>>${LOG_FILE}
 statcheck $?

@@ -28,3 +28,6 @@ rm -f $LOG_FILE
 
 
 APP_USER=roboshop
+NODEJs() {
+
+}
