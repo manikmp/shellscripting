@@ -18,7 +18,7 @@ fi
 statcheck $?
 
 print "Download the App content"
-curl -s -L -o /tmp/${component}.zip "https://github.com/roboshop-devops-project/${component}/archive/main.zip" &>>${LOG_FILE}
+curl -f -s -L -o /tmp/user.zip "https://github.com/roboshop-devops-project/user/archive/main.zip" &>>${LOG_FILE}
 statcheck $?
 
 print "extracting the app content"
