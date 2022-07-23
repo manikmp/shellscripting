@@ -63,23 +63,23 @@ chown -R ${APP_USER}:${APP_USER} /home/${APP_USER}
 statcheck $?
 
 print "set up the systemd file"
-if [ -f /home/roboshop/${component}/systemd.service ]; then
-  sed -i -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' /home/roboshop/${component}/systemd.service &>>${LOG_FILE}
+if [ -f /home/${APP_USER}/${component}/systemd.service ]; then
+  sed -i -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' /home/${APP_USER}/${component}/systemd.service &>>${LOG_FILE}
 fi
 statcheck $?
-if [ -f /home/roboshop/${component}/systemd.service ]; then
- sed -i -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' /home/roboshop/${component}/systemd.service &>>${LOG_FILE}
+if [ -f /home/${APP_USER}/${component}/systemd.service ]; then
+ sed -i -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' /home/${APP_USER}/${component}/systemd.service &>>${LOG_FILE}
 fi
 statcheck $?
-if [ -f /home/roboshop/${component}/systemd.service ]; then
-   sed -i -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' /home/roboshop/${component}/systemd.service &>>${LOG_FILE}
+if [ -f /home/${APP_USER}/${component}/systemd.service ]; then
+   sed -i -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' /home/${APP_USER}/${component}/systemd.service &>>${LOG_FILE}
 fi
 statcheck $?
-if [ -f /home/roboshop/${component}/systemd.service ]; then
-   sed -i -e '6s/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' /home/roboshop/${component}/systemd.service &>>${LOG_FILE}
+if [ -f /home/${APP_USER}/${component}/systemd.service ]; then
+   sed -i -e '6s/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' /home/${APP_USER}/${component}/systemd.service &>>${LOG_FILE}
 fi
 statcheck $?
-mv /home/roboshop/${component}/systemd.service /etc/systemd/system/${component}.service &>>${LOG_FILE}
+mv /home/${APP_USER}/${component}/systemd.service /etc/systemd/system/${component}.service &>>${LOG_FILE}
 statcheck $?
 
 print "Restarting the ${component} service"
