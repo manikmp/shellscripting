@@ -76,7 +76,7 @@ if [ -f /home/roboshop/${component}/systemd.service ]; then
 fi
 statcheck $?
 if [ -f /home/roboshop/${components}/systemd.service ]; then
-   sed -i -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' /home/roboshop/${component}/systemd.service &>>${LOG_FILE}
+   sed -i -e '/catalogue/s/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' /home/roboshop/${component}/systemd.service &>>${LOG_FILE}
 fi
 statcheck $?
 mv /home/roboshop/${component}/systemd.service /etc/systemd/system/${component}.service &>>${LOG_FILE}
