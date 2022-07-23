@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
 source components/common.sh
-component=user
-NODEJs() {
 
 print "Download the node source file"
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash  &>>${LOG_FILE}
@@ -24,27 +22,26 @@ curl -s -L -o /tmp/${component}.zip "https://github.com/roboshop-devops-project/
 statcheck $?
 
 print "extracting the app content"
-cd /home/${APP_USER} &>>${LOG_FILE} && unzip -o /tmp/${component}.zip  &>>${LOG_FILE} && mv ${component}-main ${component} &>>${LOG_FILE}
+cd /home/${APP_USER} &>>${LOG_FILE} && unzip -o /tmp/user.zip  &>>${LOG_FILE} && mv user-main user &>>${LOG_FILE}
 statcheck $?
 
-print "Install app dependencies"
-cd /home/${APP_USER}/user &>>${LOG_FILE} && npm install &>>${LOG_FILE}
-statcheck $?
+#print "Install app dependencies"
+#cd /home/${APP_USER}/user &>>${LOG_FILE} && npm install &>>${LOG_FILE}
+#statcheck $?
 
-print "Fix App User Permission"
-chown -R ${APP_USER}:${APP_USER} /home/${APP_USER}
-statcheck $?
+#print "Fix App User Permission"
+#chown -R ${APP_USER}:${APP_USER} /home/${APP_USER}
+#statcheck $?
 
-print "set up the systemd file"
-sed -i -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' /home/roboshop/${component}/systemd.service &>>${LOG_FILE}
-statcheck $?
-sed -i -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' /home/roboshop/${component}/systemd.service &>>${LOG_FILE}
-statcheck $?
-mv /home/roboshop/${component}/systemd.service /etc/systemd/system/${component}.service &>>${LOG_FILE}
-statcheck $?
+#print "set up the systemd file"
+#sed -i -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' /home/roboshop/${component}/systemd.service &>>${LOG_FILE}
+#statcheck $?
+#sed -i -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' /home/roboshop/${component}/systemd.service &>>${LOG_FILE}
+#statcheck $?
+#mv /home/roboshop/${component}/systemd.service /etc/systemd/system/${component}.service &>>${LOG_FILE}
+#statcheck $?
 
-print "Restarting the user service"
-systemctl daemon-reload &>>${LOG_FILE} && systemctl start ${component} &>>${LOG_FILE} &&  systemctl enable ${component} &>>${LOG_FILE}
-statcheck $?
+#print "Restarting the user service"
+#systemctl daemon-reload &>>${LOG_FILE} && systemctl start ${component} &>>${LOG_FILE} &&  systemctl enable ${component} &>>${LOG_FILE}
+#statcheck $?
 
-}
