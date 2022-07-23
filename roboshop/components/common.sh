@@ -85,4 +85,5 @@ statcheck $?
 print "Restarting the ${component} service"
 systemctl daemon-reload &>>${LOG_FILE} && systemctl start ${component} &>>${LOG_FILE}  &&  systemctl enable ${component} &>>${LOG_FILE}
 statcheck $?
+
 }
