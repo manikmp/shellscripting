@@ -46,3 +46,5 @@ statcheck $?
 print "Restarting the user service"
 systemctl daemon-reload &>>${LOG_FILE} && systemctl start ${component} &>>${LOG_FILE} &&  systemctl enable ${component} &>>${LOG_FILE}
 statcheck $?
+
+}
