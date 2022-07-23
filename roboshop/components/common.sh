@@ -82,7 +82,7 @@ statcheck $?
 mv /home/roboshop/${component}/systemd.service /etc/systemd/system/${component}.service &>>${LOG_FILE}
 statcheck $?
 
-print "Restarting the user service"
+print "Restarting the ${component} service"
 systemctl daemon-reload &>>${LOG_FILE} && systemctl start ${component} &>>${LOG_FILE}  &&  systemctl enable ${component} &>>${LOG_FILE}
 statcheck $?
 }
